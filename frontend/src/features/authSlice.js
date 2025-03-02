@@ -13,11 +13,23 @@ export const checkAuth = createAsyncThunk("auth/check", async () => {
   }
 });
 
+export const logout = createAsyncThunk("auth/logout", async () => {
+  try {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/auth/logout`,
+      { withCredentials: true }
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+});
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     user: null,
-    status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
+    status: "failed", // 'loading' | 'succeeded' | 'failed'
     initialized: false,
   },
   reducers: {},
@@ -35,6 +47,10 @@ const authSlice = createSlice({
         state.status = "failed";
         state.user = null;
         state.initialized = true;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = null;
+        state.status = "failed";
       });
   },
 });

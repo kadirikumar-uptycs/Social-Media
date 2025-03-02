@@ -18,8 +18,16 @@ router.get(
 );
 
 router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect(process.env.CLIENT_URL);
+  try {
+    req.logout((err) => {
+      if (err) {
+        return res.status(500).send({ message: err });
+      }
+    });
+    return res.status(200).send('Logged Out Successfully!!!');
+  } catch (err) {
+    return res.status(500).send({ message: err });
+  }
 });
 
 module.exports = router;

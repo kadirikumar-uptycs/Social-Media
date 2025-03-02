@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const mailOptions = require("../utils/mailOptions");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -9,14 +10,8 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendViolationEmail = (email) => {
-  const mailOptions = {
-    from: `SocialHub ${process.env.EMAIL_USER}`,
-    to: email,
-    subject: "Content Violation Alert",
-    html: `<p>Your recent post was flagged for violating our community guidelines. Please review our policies before posting again.</p>`,
-  };
 
-  transporter.sendMail(mailOptions, (err, info) => {
+  transporter.sendMail(mailOptions(email), (err, info) => {
     if (err) {
       console.log(err);
     }

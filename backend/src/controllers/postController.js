@@ -36,7 +36,7 @@ const createPost = async (req, res) => {
       sendEmail(req?.user?.email);
       return res
         .status(422)
-        .json({ message: "Content violates community guidelines" });
+        .json({ message: "⚠️ Content violates community guidelines" });
     }
 
     let mediaUrl;
@@ -59,7 +59,7 @@ const createPost = async (req, res) => {
     }
 
     const post = await Post.create({
-      user: req.user._id, // Ensure correct reference
+      user: req.user._id,
       text: req.body.text,
       mediaUrl,
       mediaType: req.file ? req.file.mimetype.split("/")[0] : "text",
