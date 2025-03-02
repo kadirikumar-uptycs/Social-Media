@@ -2,6 +2,13 @@
 
 This is a full-stack social media application built with a **React.js frontend** and a **Node.js (Express) backend**. It features modern UI/UX, AI-powered content moderation, and seamless backend integration. Users can create posts, interact with content, and stay connected in a safe and engaging environment.
 
+![Image1](images/image1.png)
+![Image2](images/image2.png)
+![Image3](images/image3.png)
+![Image4](images/image4.png)
+![Image5](images/image5.png)
+
+
 ---
 
 ## **Setup Instructions**
