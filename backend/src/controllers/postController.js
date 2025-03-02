@@ -35,7 +35,7 @@ const createPost = async (req, res) => {
     if (analysis.data.predicted_label === "cyberbullying") {
       sendEmail(req?.user?.email);
       return res
-        .status(400)
+        .status(422)
         .json({ message: "Content violates community guidelines" });
     }
 
