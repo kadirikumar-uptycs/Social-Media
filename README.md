@@ -58,7 +58,6 @@ This is a full-stack social media application built with a **React.js frontend**
 
 3. Create a `.env` file in the frontend directory and add the necessary environment variables. Use the `.env.sample` file as a reference. The required variables include:
    - `REACT_APP_API_URL`: URL of the backend API (e.g., `http://localhost:5000`)
-   - `REACT_APP_GOOGLE_CLIENT_ID`: Google OAuth client ID
 
 4. Start the frontend development server:
    ```bash
